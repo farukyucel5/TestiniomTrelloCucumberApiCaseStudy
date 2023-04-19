@@ -37,39 +37,39 @@ public class ReuseableMethods {
 
     public void addingQueryParams(String operation,StringBuilder tempPath){
         switch (operation) {
-            case "Creation" -> spec.queryParam("token", ConfigReader.getProperty("Token")).
-                    queryParam("name", ConfigReader.getProperty("BoardName")).
-                    queryParam("key", ConfigReader.getProperty("ApiKey"));
+            case "Creation" -> spec.queryParam("token", ConfigReader.getProperty("Token"))
+                                   .queryParam("name", ConfigReader.getProperty("BoardName"))
+                                   .queryParam("key", ConfigReader.getProperty("ApiKey"));
 
             case "Lists" -> spec.queryParam("key", ConfigReader.getProperty("ApiKey"))
-                    .queryParam("idBoard", boardId)
-                    .queryParam("name", ConfigReader.getProperty("ListName"))
-                    .queryParam("token", ConfigReader.getProperty("Token"));
+                                .queryParam("idBoard", boardId)
+                                .queryParam("name", ConfigReader.getProperty("ListName"))
+                                .queryParam("token", ConfigReader.getProperty("Token"));
 
             case "Cards" -> spec.queryParam("idList", listId)
-                    .queryParam("token", ConfigReader.getProperty("Token"))
-                    .queryParam("key", ConfigReader.getProperty("ApiKey"));
+                                .queryParam("token", ConfigReader.getProperty("Token"))
+                                .queryParam("key", ConfigReader.getProperty("ApiKey"));
 
             case "Card update" -> {
-                spec.pathParam("pp3", cardIdLists.get(1));
-                tempPath.append("/{pp3}");
-                spec.queryParam("key", ConfigReader.getProperty("ApiKey"))
+                    spec.pathParam("pp3", cardIdLists.get(1));
+                    tempPath.append("/{pp3}");
+                    spec.queryParam("key", ConfigReader.getProperty("ApiKey"))
                         .queryParam("token", ConfigReader.getProperty("Token"))
                         .queryParam("name", "query1")
                         .queryParam("desc", "First Query");
             }
 
             case "Delete cart" -> {
-                spec.pathParam("pp3", cardIdLists.get(1));
-                tempPath.append("/{pp3}");
-                spec.queryParam("key", ConfigReader.getProperty("ApiKey"))
+                    spec.pathParam("pp3", cardIdLists.get(1));
+                         tempPath.append("/{pp3}");
+                    spec.queryParam("key", ConfigReader.getProperty("ApiKey"))
                         .queryParam("token", ConfigReader.getProperty("Token"));
 
             }
             case "Delete board" -> {
-                spec.pathParam("pp3", boardId);
-                tempPath.append("/{pp3}");
-                spec.queryParam("key", ConfigReader.getProperty("ApiKey"))
+                    spec.pathParam("pp3", boardId);
+                         tempPath.append("/{pp3}");
+                    spec.queryParam("key", ConfigReader.getProperty("ApiKey"))
                         .queryParam("token", ConfigReader.getProperty("Token"));
 
             }
