@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
         tags = "@Smoke",
         dryRun = false
 )
-public class RunnerAPI {
+public class runnerApi {
 
 }
 

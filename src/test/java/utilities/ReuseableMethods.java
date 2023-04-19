@@ -1,14 +1,11 @@
 package utilities;
-
 import Pojos.CreatingBoardExpectedBody;
 import Pojos.CreatingListExpectedBody;
 import Pojos.CreatingTwoCardsExpectedBody;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import static hooks.api.HooksAPI.spec;
 import static io.restassured.RestAssured.given;
 
